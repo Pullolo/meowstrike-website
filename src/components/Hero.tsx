@@ -2,9 +2,11 @@ import { ArrowRight, Download, Sparkles } from "lucide-react";
 import arena from "../assets/env/arena.webp";
 import icon from "../assets/brand/icon.png";
 import logoGlow from "../assets/brand/logo-glow.png";
-import { APK_DOWNLOAD_URL, SITE_TAGLINE, SITE_TITLE } from "../config";
+import { APK_DOWNLOAD_URL, SITE_TITLE } from "../config";
+import { useLanguage } from "../i18n/LanguageContext";
 
 export function Hero() {
+  const { t } = useLanguage();
   return (
     <section id="top" className="relative isolate overflow-hidden pt-32 pb-24 sm:pt-40 sm:pb-32">
       {/* Backdrop: blurred arena art + starfield + cosmic glow, all behind a
@@ -41,18 +43,17 @@ export function Hero() {
 
         <div className="mb-5 flex items-center gap-2 rounded-full border border-gold/30 bg-gold/10 px-3.5 py-1.5 text-[12px] font-semibold tracking-wide text-gold">
           <Sparkles size={13} />
-          Darmowa gra na Androida
+          {t.hero.badge}
         </div>
 
         <h1 className="text-balance text-5xl leading-[1.05] font-bold tracking-tight text-ink sm:text-7xl">
           {SITE_TITLE}
         </h1>
         <p className="text-balance mt-5 max-w-xl text-lg text-ink-muted sm:text-xl">
-          {SITE_TAGLINE}
+          {t.hero.tagline}
         </p>
         <p className="text-balance mt-3 max-w-lg text-sm text-ink-muted/80 sm:text-base">
-          Buduj drużynę kosmicznych kotów, walcz w turowych bitwach solo i online, i eksploruj
-          krainę pełną gwiazd — kampania, coop, arena PvP i draft 1v1–3v3.
+          {t.hero.subtitle}
         </p>
 
         <div className="mt-9 flex flex-col items-center gap-4 sm:flex-row">
@@ -63,7 +64,7 @@ export function Hero() {
             className="group flex items-center gap-2.5 rounded-2xl bg-gold px-7 py-4 text-[15px] font-bold text-bg shadow-[0_10px_40px_-8px_var(--color-gold)] transition hover:brightness-110 active:scale-[0.98]"
           >
             <Download size={19} strokeWidth={2.5} />
-            Pobierz .apk na Androida
+            {t.hero.ctaDownload}
             <ArrowRight
               size={16}
               className="transition group-hover:translate-x-0.5"
@@ -74,13 +75,12 @@ export function Hero() {
             href="#features"
             className="rounded-2xl border border-white/10 bg-white/5 px-7 py-4 text-[15px] font-semibold text-ink transition hover:border-white/20 hover:bg-white/10"
           >
-            Zobacz co w środku
+            {t.hero.ctaFeatures}
           </a>
         </div>
 
         <p className="mt-5 text-xs text-ink-muted/70">
-          Instalacja poza sklepem Play — Android włączy potwierdzenie „zainstaluj z nieznanego
-          źródła" przy pierwszym uruchomieniu pliku.
+          {t.hero.installNote}
         </p>
       </div>
     </section>

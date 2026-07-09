@@ -38,12 +38,6 @@ export const SHOWCASE_CATS: ShowcaseCat[] = [
   { id: "runa", name: "Runa", stars: 4, archetype: "dps", image: runa },
 ];
 
-export const ARCHETYPE_LABEL: Record<Archetype, string> = {
-  dps: "DPS",
-  tank: "Tank",
-  support: "Wsparcie",
-};
-
 export const ARCHETYPE_COLOR: Record<Archetype, string> = {
   dps: "#ff5c5c",
   tank: "#3b82f6",

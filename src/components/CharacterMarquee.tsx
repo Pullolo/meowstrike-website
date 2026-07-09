@@ -1,4 +1,5 @@
-import { ARCHETYPE_COLOR, ARCHETYPE_LABEL, SHOWCASE_CATS, type ShowcaseCat } from "../data/characters";
+import { ARCHETYPE_COLOR, SHOWCASE_CATS, type ShowcaseCat } from "../data/characters";
+import { useLanguage } from "../i18n/LanguageContext";
 
 function StarRow({ stars }: { stars: number }) {
   return (
@@ -13,7 +14,9 @@ function StarRow({ stars }: { stars: number }) {
 }
 
 function CatCard({ cat }: { cat: ShowcaseCat }) {
+  const { t } = useLanguage();
   const accent = ARCHETYPE_COLOR[cat.archetype];
+  const name = t.catNames[cat.name] ?? cat.name;
   return (
     <div
       className="group relative mx-2.5 flex w-36 shrink-0 flex-col items-center gap-2.5 rounded-2xl border border-white/8 bg-surface/60 p-4 transition duration-300 hover:-translate-y-1.5 hover:border-white/20 sm:w-40"
@@ -27,18 +30,18 @@ function CatCard({ cat }: { cat: ShowcaseCat }) {
         className="relative flex h-20 w-20 items-center justify-center overflow-hidden rounded-full border-2 sm:h-24 sm:w-24"
         style={{ borderColor: accent + "88", background: accent + "14" }}
       >
-        <img src={cat.image} alt={cat.name} className="h-full w-full object-cover" loading="lazy" />
+        <img src={cat.image} alt={name} className="h-full w-full object-cover" loading="lazy" />
       </div>
       <div className="relative flex flex-col items-center gap-1">
         <span className="text-center text-[13px] leading-tight font-semibold text-ink">
-          {cat.name}
+          {name}
         </span>
         <StarRow stars={cat.stars} />
         <span
           className="rounded-full px-2 py-0.5 text-[10px] font-bold tracking-wide"
           style={{ color: accent, backgroundColor: accent + "1c" }}
         >
-          {ARCHETYPE_LABEL[cat.archetype]}
+          {t.archetype[cat.archetype]}
         </span>
       </div>
     </div>
@@ -49,20 +52,18 @@ function CatCard({ cat }: { cat: ShowcaseCat }) {
  *  animated exactly -50% so the loop point is invisible. Hover pauses it —
  *  handy for actually reading a card. */
 export function CharacterMarquee() {
+  const { t } = useLanguage();
   const track = [...SHOWCASE_CATS, ...SHOWCASE_CATS];
   return (
     <section id="roster" className="relative py-20 sm:py-28">
       <div className="mx-auto max-w-3xl px-6 text-center">
         <span className="text-xs font-bold tracking-[0.2em] text-cosmic uppercase">
-          Poznaj drużynę
+          {t.roster.eyebrow}
         </span>
         <h2 className="text-balance mt-3 text-3xl font-bold text-ink sm:text-4xl">
-          Dziesiątki kotów do zebrania
+          {t.roster.title}
         </h2>
-        <p className="text-balance mt-4 text-ink-muted">
-          Każdy kot to inny archetyp, zestaw umiejętności i osobowość — od pancernych tanków po
-          błyskawiczne DPS-y i kocie wsparcie. Zbuduj drużynę, która pasuje do Twojego stylu.
-        </p>
+        <p className="text-balance mt-4 text-ink-muted">{t.roster.body}</p>
       </div>
 
       <div className="relative mt-12 overflow-hidden">

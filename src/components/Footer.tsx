@@ -1,8 +1,10 @@
 import icon from "../assets/brand/icon.png";
 import { RELEASES_URL, SITE_TITLE } from "../config";
+import { useLanguage } from "../i18n/LanguageContext";
 import { GithubMark } from "./icons/GithubMark";
 
 export function Footer() {
+  const { t } = useLanguage();
   return (
     <footer className="border-t border-white/5 py-10">
       <div className="mx-auto flex max-w-6xl flex-col items-center gap-4 px-6 text-center sm:flex-row sm:justify-between sm:text-left">
@@ -12,7 +14,7 @@ export function Footer() {
         </div>
         <div className="flex items-center gap-6 text-[13px] text-ink-muted">
           <a href={RELEASES_URL} target="_blank" rel="noreferrer" className="transition hover:text-ink">
-            Historia wydań
+            {t.footer.releases}
           </a>
           <a
             href="https://github.com/Pullolo/meowstrike"
@@ -24,10 +26,7 @@ export function Footer() {
             GitHub
           </a>
         </div>
-        <p className="text-[12px] text-ink-muted/70">
-          Gra rozwijana solo. Instalacja poza Sklepem Play — plik .apk pochodzi bezpośrednio z
-          repozytorium na GitHubie.
-        </p>
+        <p className="text-[12px] text-ink-muted/70">{t.footer.note}</p>
       </div>
     </footer>
   );

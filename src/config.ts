@@ -18,4 +18,3 @@ export const RELEASES_URL =
   "https://github.com/Pullolo/meowstrike-website/releases";
 
 export const SITE_TITLE = "Meow Strike";
-export const SITE_TAGLINE = "Zbierz drużynę kotów. Ruszcie razem w przygodę.";
