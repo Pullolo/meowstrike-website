@@ -29,19 +29,21 @@ hardcoded anywhere.
 `main`. One-time setup in the repo: **Settings → Pages → Source → GitHub
 Actions**. After that, pushing to `main` is the whole deploy.
 
-**Private-repo caveat:** GitHub Pages only serves out of a private repository
-on paid plans (Pro / Team / Enterprise) — on the Free plan, Pages requires a
-**public** repository. If this repo stays private on a Free account, either
-upgrade the plan or make this repo public — there's no game source in here
-(only the marketing site + copied art), so publicity is low-stakes, but it's
-your call.
+This repo (`meowstrike-website`) is public — required for GitHub Pages on the
+Free plan (private repos need Pro/Team/Enterprise to serve Pages).
 
-## Updating the download link
+## Publishing a new APK
 
-`src/config.ts` → `APK_DOWNLOAD_URL`. It's already pointed at
-`github.com/Pullolo/meowstrike/releases/latest`, which auto-resolves to
-whatever tag is newest — no edits needed when a new APK ships, unless the
-release repo/URL changes.
+The main game repo (`meowstrike`) is **private**, so its Releases page 404s
+for players. The download button instead points at **this** repo's Releases
+(`src/config.ts` → `APK_DOWNLOAD_URL`, already set to
+`github.com/Pullolo/meowstrike-website/releases/latest`) — publish each new
+build here:
+
+1. GitHub → this repo → **Releases → Draft a new release**.
+2. Tag it (e.g. `v1.2.0`), attach the built `.apk`.
+3. Publish. `/releases/latest` picks it up automatically — no site edits, no
+   redeploy needed.
 
 ## Refreshing game assets
 
