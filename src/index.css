@@ -1,0 +1,128 @@
+@import "tailwindcss";
+
+/* Poppins — same family as the game itself, self-hosted (no Google Fonts
+   request, works offline / behind ad-blockers, zero layout-shift font swap
+   surprises on GitHub Pages). */
+@font-face {
+  font-family: "Poppins";
+  src: url("./assets/fonts/Poppins-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("./assets/fonts/Poppins-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("./assets/fonts/Poppins-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("./assets/fonts/Poppins-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-display: swap;
+}
+
+/* Tailwind v4 theme tokens, lifted from the app's own dark "Kotlina Gwiazd"
+   palette (src/theme/colors.ts) so the site and the game feel like one thing. */
+@theme {
+  --font-sans: "Poppins", system-ui, sans-serif;
+
+  --color-bg: #0b0e1a;
+  --color-surface: #141a2e;
+  --color-surface-alt: #1c2340;
+  --color-border: #2a3354;
+
+  --color-ink: #e7ecff;
+  --color-ink-muted: #9aa4c4;
+
+  --color-gold: #f5b83d;
+  --color-stardust: #3fe0d0;
+  --color-shard: #c9a6ff;
+  --color-fish: #f2a65a;
+  --color-cosmic: #a855f7;
+
+  --color-danger: #ff5c5c;
+  --color-success: #3fb66b;
+  --color-info: #3b82f6;
+
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-drift: drift 40s linear infinite;
+  --animate-glow-pulse: glow-pulse 3.5s ease-in-out infinite;
+  --animate-marquee: marquee 42s linear infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-14px);
+  }
+}
+@keyframes drift {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 1200px 600px;
+  }
+}
+@keyframes glow-pulse {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.08);
+  }
+}
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* A faint starfield the whole page drifts against — cheap (pure CSS radial
+   gradients, no image request) but reads as "night sky" everywhere. */
+.starfield {
+  background-image:
+    radial-gradient(1.5px 1.5px at 20px 30px, #ffffff55, transparent),
+    radial-gradient(1px 1px at 90px 140px, #ffffff40, transparent),
+    radial-gradient(1.5px 1.5px at 160px 60px, #ffffff55, transparent),
+    radial-gradient(1px 1px at 230px 200px, #ffffff35, transparent),
+    radial-gradient(2px 2px at 300px 90px, #ffffff45, transparent),
+    radial-gradient(1px 1px at 380px 240px, #ffffff35, transparent);
+  background-repeat: repeat;
+  background-size: 420px 420px;
+  animation: drift 60s linear infinite;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
