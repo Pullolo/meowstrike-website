@@ -34,6 +34,13 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     document
       .querySelector('meta[property="og:description"]')
       ?.setAttribute("content", t.meta.description);
+    document
+      .querySelector('meta[property="og:locale"]')
+      ?.setAttribute("content", lang === "pl" ? "pl_PL" : "en_US");
+    document.querySelector('meta[name="twitter:title"]')?.setAttribute("content", t.meta.title);
+    document
+      .querySelector('meta[name="twitter:description"]')
+      ?.setAttribute("content", t.meta.description);
   }, [lang]);
 
   const setLang = (next: Lang) => {
