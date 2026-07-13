@@ -16,6 +16,9 @@ export function Footer() {
           <a href={RELEASES_URL} target="_blank" rel="noreferrer" className="transition hover:text-ink">
             {t.footer.releases}
           </a>
+          <a href="#privacy" className="transition hover:text-ink">
+            {t.footer.privacy}
+          </a>
           <a
             href="https://github.com/Pullolo/meowstrike"
             target="_blank"

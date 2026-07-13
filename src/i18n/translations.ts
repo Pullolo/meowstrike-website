@@ -62,6 +62,7 @@ export interface Translation {
   };
   footer: {
     releases: string;
+    privacy: string;
     note: string;
   };
 }
@@ -166,6 +167,7 @@ export const TRANSLATIONS: Record<Lang, Translation> = {
     },
     footer: {
       releases: "Release history",
+      privacy: "Privacy policy",
       note: "Solo-developed game. Installed outside the Play Store — the .apk comes straight from the GitHub repository.",
     },
   },
@@ -260,6 +262,7 @@ export const TRANSLATIONS: Record<Lang, Translation> = {
     },
     footer: {
       releases: "Historia wydań",
+      privacy: "Polityka prywatności",
       note: "Gra rozwijana solo. Instalacja poza Sklepem Play — plik .apk pochodzi bezpośrednio z repozytorium na GitHubie.",
     },
   },

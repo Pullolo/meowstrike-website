@@ -18,3 +18,6 @@ export const RELEASES_URL =
   "https://github.com/Pullolo/meowstrike-website/releases";
 
 export const SITE_TITLE = "Meow Strike";
+
+/** Privacy requests and account-deletion requests. */
+export const PRIVACY_EMAIL = "pllwot89@gmail.com";
