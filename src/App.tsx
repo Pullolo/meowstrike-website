@@ -4,7 +4,6 @@ import { Features } from "./components/Features";
 import { Footer } from "./components/Footer";
 import { Hero } from "./components/Hero";
 import { Nav } from "./components/Nav";
-import { PrivacyPolicy } from "./components/PrivacyPolicy";
 import { Worlds } from "./components/Worlds";
 
 function App() {
@@ -17,7 +16,6 @@ function App() {
         <CharacterMarquee />
         <Worlds />
         <DownloadCta />
-        <PrivacyPolicy />
       </main>
       <Footer />
     </div>

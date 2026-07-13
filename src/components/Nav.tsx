@@ -26,12 +26,15 @@ function LanguageSwitch() {
   );
 }
 
-export function Nav() {
+/** `homePath` lets pages other than the homepage (e.g. the privacy policy
+ *  page, which lives one directory down) point these anchors back at the
+ *  homepage's sections instead of a same-page hash that doesn't exist there. */
+export function Nav({ homePath = "" }: { homePath?: string }) {
   const { t } = useLanguage();
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-white/5 bg-bg/70 backdrop-blur-lg">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-3 sm:px-8">
-        <a href="#top" className="flex items-center gap-2.5">
+        <a href={`${homePath}#top`} className="flex items-center gap-2.5">
           <img
             src={icon}
             alt=""
@@ -40,13 +43,13 @@ export function Nav() {
           <span className="text-[15px] font-semibold tracking-wide text-ink">{SITE_TITLE}</span>
         </a>
         <nav className="hidden items-center gap-7 text-sm font-medium text-ink-muted sm:flex">
-          <a href="#features" className="transition hover:text-ink">
+          <a href={`${homePath}#features`} className="transition hover:text-ink">
             {t.nav.features}
           </a>
-          <a href="#roster" className="transition hover:text-ink">
+          <a href={`${homePath}#roster`} className="transition hover:text-ink">
             {t.nav.roster}
           </a>
-          <a href="#worlds" className="transition hover:text-ink">
+          <a href={`${homePath}#worlds`} className="transition hover:text-ink">
             {t.nav.worlds}
           </a>
           <a

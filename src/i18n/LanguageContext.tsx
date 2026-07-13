@@ -22,26 +22,33 @@ interface LanguageContextValue {
 
 const LanguageContext = createContext<LanguageContextValue | null>(null);
 
-export function LanguageProvider({ children }: { children: ReactNode }) {
+export function LanguageProvider({
+  children,
+  metaKey = "meta",
+}: {
+  children: ReactNode;
+  /** Which translation entry drives document title/meta tags — lets each page (home, privacy) own its own SEO copy. */
+  metaKey?: "meta" | "privacyMeta";
+}) {
   const [lang, setLangState] = useState<Lang>(detectLang);
 
   useEffect(() => {
-    const t = TRANSLATIONS[lang];
+    const meta = TRANSLATIONS[lang][metaKey];
     document.documentElement.lang = lang;
-    document.title = t.meta.title;
-    document.querySelector('meta[name="description"]')?.setAttribute("content", t.meta.description);
-    document.querySelector('meta[property="og:title"]')?.setAttribute("content", t.meta.title);
+    document.title = meta.title;
+    document.querySelector('meta[name="description"]')?.setAttribute("content", meta.description);
+    document.querySelector('meta[property="og:title"]')?.setAttribute("content", meta.title);
     document
       .querySelector('meta[property="og:description"]')
-      ?.setAttribute("content", t.meta.description);
+      ?.setAttribute("content", meta.description);
     document
       .querySelector('meta[property="og:locale"]')
       ?.setAttribute("content", lang === "pl" ? "pl_PL" : "en_US");
-    document.querySelector('meta[name="twitter:title"]')?.setAttribute("content", t.meta.title);
+    document.querySelector('meta[name="twitter:title"]')?.setAttribute("content", meta.title);
     document
       .querySelector('meta[name="twitter:description"]')
-      ?.setAttribute("content", t.meta.description);
-  }, [lang]);
+      ?.setAttribute("content", meta.description);
+  }, [lang, metaKey]);
 
   const setLang = (next: Lang) => {
     window.localStorage.setItem(STORAGE_KEY, next);

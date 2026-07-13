@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="../favicon.png" />
+    <link rel="apple-touch-icon" href="../app-icon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0B0E1A" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <link rel="canonical" href="https://meowstrike.pl/privacy-policy/" />
+    <script>
+      (function () {
+        var stored = localStorage.getItem("ms_lang");
+        var lang = stored === "en" || stored === "pl" ? stored : null;
+        if (!lang) {
+          var browserLangs = navigator.languages || [navigator.language];
+          lang = browserLangs.some(function (l) {
+            return l.toLowerCase().indexOf("pl") === 0;
+          })
+            ? "pl"
+            : "en";
+        }
+        document.documentElement.lang = lang;
+        if (lang === "pl") {
+          document.title = "Polityka prywatności — Meow Strike";
+        }
+      })();
+    </script>
+    <title>Privacy Policy — Meow Strike</title>
+    <meta
+      name="description"
+      content="How Meow Strike collects, uses, and protects your data across the website, optional account, and online features."
+    />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Meow Strike" />
+    <meta property="og:url" content="https://meowstrike.pl/privacy-policy/" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:title" content="Privacy Policy — Meow Strike" />
+    <meta
+      property="og:description"
+      content="How Meow Strike collects, uses, and protects your data across the website, optional account, and online features."
+    />
+    <meta property="og:image" content="https://meowstrike.pl/app-icon.png" />
+    <meta property="og:image:width" content="512" />
+    <meta property="og:image:height" content="512" />
+    <meta property="og:image:alt" content="Meow Strike game icon" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Privacy Policy — Meow Strike" />
+    <meta
+      name="twitter:description"
+      content="How Meow Strike collects, uses, and protects your data across the website, optional account, and online features."
+    />
+    <meta name="twitter:image" content="https://meowstrike.pl/app-icon.png" />
+    <meta name="twitter:image:alt" content="Meow Strike game icon" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/privacy-main.tsx"></script>
+  </body>
+</html>

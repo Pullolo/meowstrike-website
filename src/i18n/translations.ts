@@ -17,6 +17,10 @@ export interface Translation {
     title: string;
     description: string;
   };
+  privacyMeta: {
+    title: string;
+    description: string;
+  };
   nav: {
     features: string;
     roster: string;
@@ -73,6 +77,11 @@ export const TRANSLATIONS: Record<Lang, Translation> = {
       title: "Meow Strike — download the game for Android",
       description:
         "Gather a team of cosmic cats and head for the stars together. Turn-based battles, campaign, coop and PvP online. Download Meow Strike free for Android.",
+    },
+    privacyMeta: {
+      title: "Privacy Policy — Meow Strike",
+      description:
+        "How Meow Strike collects, uses, and protects your data across the website, optional account, and online features.",
     },
     nav: {
       features: "Gameplay",
@@ -176,6 +185,11 @@ export const TRANSLATIONS: Record<Lang, Translation> = {
       title: "Meow Strike — pobierz grę na Androida",
       description:
         "Zbierz drużynę kosmicznych kotów i ruszcie razem w gwiazdy. Turowe bitwy, kampania, coop i PvP online. Pobierz Meow Strike za darmo na Androida.",
+    },
+    privacyMeta: {
+      title: "Polityka prywatności — Meow Strike",
+      description:
+        "Jak Meow Strike zbiera, wykorzystuje i chroni Twoje dane na stronie, w opcjonalnym koncie i funkcjach online.",
     },
     nav: {
       features: "Rozgrywka",

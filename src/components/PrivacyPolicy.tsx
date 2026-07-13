@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { PRIVACY_EMAIL } from "../config";
 import { useLanguage } from "../i18n/LanguageContext";
 
@@ -294,16 +293,8 @@ function PolishPolicy() {
 export function PrivacyPolicy() {
   const { lang } = useLanguage();
 
-  useEffect(() => {
-    if (window.location.hash !== "#privacy") return;
-
-    // The section is rendered by React after the browser's native initial
-    // hash-scroll attempt, so handle direct /#privacy visits once it exists.
-    window.requestAnimationFrame(() => document.getElementById("privacy")?.scrollIntoView());
-  }, []);
-
   return (
-    <section id="privacy" className="border-t border-white/5 px-5 py-24 sm:px-8 sm:py-32">
+    <section id="privacy" className="px-5 pt-28 pb-24 sm:px-8 sm:pt-36 sm:pb-32">
       <article className="privacy-copy mx-auto max-w-4xl rounded-3xl border border-white/10 bg-surface/80 p-6 shadow-2xl shadow-black/20 sm:p-10 lg:p-14">
         <p className="text-xs font-bold uppercase tracking-[0.22em] text-stardust">
           {lang === "pl" ? "Prywatność" : "Privacy"}

@@ -3,7 +3,9 @@ import { RELEASES_URL, SITE_TITLE } from "../config";
 import { useLanguage } from "../i18n/LanguageContext";
 import { GithubMark } from "./icons/GithubMark";
 
-export function Footer() {
+/** `privacyHref` defaults to the homepage's link out to the privacy policy
+ *  page; the privacy page itself overrides it to link back to the homepage. */
+export function Footer({ privacyHref = "./privacy-policy/" }: { privacyHref?: string }) {
   const { t } = useLanguage();
   return (
     <footer className="border-t border-white/5 py-10">
@@ -16,7 +18,7 @@ export function Footer() {
           <a href={RELEASES_URL} target="_blank" rel="noreferrer" className="transition hover:text-ink">
             {t.footer.releases}
           </a>
-          <a href="#privacy" className="transition hover:text-ink">
+          <a href={privacyHref} className="transition hover:text-ink">
             {t.footer.privacy}
           </a>
           <a
